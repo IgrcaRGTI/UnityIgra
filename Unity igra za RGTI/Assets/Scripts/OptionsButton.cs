@@ -1,25 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Audio;
+
 
 public class OptionsButton : MonoBehaviour {
 
-    public int PercetForVolume;
-    public Slider MainSlider;
+    public AudioMixer AudioMixer;
 
 
-    // Use this for initialization
-    void Start() {
-        PercetForVolume = (int)GameObject.Find("MainSlider").GetComponent<Slider>().value;
-    }
-
-    // Update is called once per frame
-    void Update() {
-
-    }
-    public void ValueChangeCheck()
+    public void SetVolume(float Volume)
     {
-        Debug.Log((GameObject.Find("MainSlider").GetComponent<Slider>().value).ToString());
+        AudioMixer.SetFloat("Volume", Volume);
+        Debug.Log(Volume);
     }
+
 }
